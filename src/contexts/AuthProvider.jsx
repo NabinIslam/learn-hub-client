@@ -4,6 +4,7 @@ import {
   getAuth,
   GoogleAuthProvider,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
   updateProfile,
@@ -23,6 +24,11 @@ const AuthProvider = ({ children }) => {
   //register with email and password
   const registerWithEmailAndPassword = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  //login with email and password
+  const loginWithEmailAndPassword = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
   };
 
   //login with google
@@ -56,6 +62,7 @@ const AuthProvider = ({ children }) => {
   const authInfo = {
     user,
     registerWithEmailAndPassword,
+    loginWithEmailAndPassword,
     loginWithGoogle,
     updateUserProfile,
     logOut,

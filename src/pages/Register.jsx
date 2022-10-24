@@ -19,13 +19,12 @@ const Register = () => {
     const password = form.password.value;
 
     registerWithEmailAndPassword(email, password)
-      .then(result => {
+      .then(() => {
         updateUserProfile(fullName, photoUrl)
           .then(() => {})
           .catch(error => {
             toast.error(error.message);
           });
-        console.log(result.user);
         navigate('/');
         form.reset();
         toast.success('Registration successful');
@@ -37,8 +36,7 @@ const Register = () => {
 
   const handleGoogleSignIn = () => {
     loginWithGoogle()
-      .then(result => {
-        console.log(result.user);
+      .then(() => {
         navigate('/');
         toast.success('Login successful');
       })

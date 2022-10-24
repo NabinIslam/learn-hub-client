@@ -5,14 +5,30 @@ import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthProvider';
 
 const Login = () => {
-  const { loginWithGoogle } = useContext(AuthContext);
+  const { loginWithGoogle, loginWithEmailAndPassword } =
+    useContext(AuthContext);
 
   const navigate = useNavigate();
 
+  const handleLogin = event => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    loginWithEmailAndPassword(email, password)
+      .then(() => {
+        navigate('/');
+        toast.success('Login successful');
+      })
+      .catch(error => {
+        toast.error(error.message);
+      });
+  };
+
   const handleGoogleSignIn = () => {
     loginWithGoogle()
-      .then(result => {
-        console.log(result.user);
+      .then(() => {
         navigate('/');
         toast.success('Login successful');
       })
@@ -28,13 +44,14 @@ const Login = () => {
             <h1 className="text-5xl font-bold my-6">Login now!</h1>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 mx-auto">
-            <form className="card-body">
+            <form onSubmit={handleLogin} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email address</span>
                 </label>
                 <input
                   type="email"
+                  name="email"
                   placeholder="Email address"
                   className="input input-bordered"
                   required
@@ -46,6 +63,7 @@ const Login = () => {
                 </label>
                 <input
                   type="password"
+                  name="password"
                   placeholder="Password"
                   className="input input-bordered"
                   required
