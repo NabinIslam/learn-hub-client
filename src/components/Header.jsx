@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../assets/logos/logo.png';
 import { FaBars } from 'react-icons/fa';
 import avatar from '../assets/avatar/avatar.png';
@@ -11,9 +11,12 @@ const Header = () => {
 
   const { user, logOut } = useContext(AuthContext);
 
+  const navigate = useNavigate();
+
   const handleLogout = () => {
     logOut()
       .then(() => {
+        navigate('/login');
         toast.success('Logout successful');
       })
       .catch(error => {
