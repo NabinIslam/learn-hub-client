@@ -78,12 +78,23 @@ const Header = () => {
                     Logout
                   </Link>
                 </li>
-                <img
-                  className="rounded-full"
-                  src={user ? user.photoURL : avatar}
-                  width={30}
-                  alt=""
-                />
+                <div className="dropdown dropdown-end dropdown-hover">
+                  <img
+                    className="rounded-full cursor-pointer"
+                    tabIndex={0}
+                    src={user ? user.photoURL : avatar}
+                    width={30}
+                    alt=""
+                  />
+                  <ul
+                    tabIndex={0}
+                    className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+                  >
+                    <li>
+                      <Link>{user?.displayName}</Link>
+                    </li>
+                  </ul>
+                </div>
               </>
             ) : (
               <>
