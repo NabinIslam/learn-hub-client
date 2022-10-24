@@ -21,7 +21,7 @@ const Login = () => {
       });
   };
   return (
-    <div className="hero min-h-[90vh] bg-base-200">
+    <div className="hero min-h-[90vh] ">
       <div className="container">
         <div className="flex-col">
           <div className="text-center">

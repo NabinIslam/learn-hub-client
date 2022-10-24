@@ -5,9 +5,35 @@ import { AuthContext } from '../contexts/AuthProvider';
 import toast from 'react-hot-toast';
 
 const Register = () => {
-  const { loginWithGoogle } = useContext(AuthContext);
+  const { loginWithGoogle, registerWithEmailAndPassword, updateUserProfile } =
+    useContext(AuthContext);
 
   const navigate = useNavigate();
+
+  const handleRegister = event => {
+    event.preventDefault();
+    const form = event.target;
+    const fullName = form.fullName.value;
+    const photoUrl = form.photoUrl.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    registerWithEmailAndPassword(email, password)
+      .then(result => {
+        updateUserProfile(fullName, photoUrl)
+          .then(() => {})
+          .catch(error => {
+            toast.error(error.message);
+          });
+        console.log(result.user);
+        navigate('/');
+        form.reset();
+        toast.success('Registration successful');
+      })
+      .catch(error => {
+        toast.error(error.message);
+      });
+  };
 
   const handleGoogleSignIn = () => {
     loginWithGoogle()
@@ -22,14 +48,14 @@ const Register = () => {
   };
 
   return (
-    <div className="hero min-h-[90vh] bg-base-200">
+    <div className="hero min-h-[90vh] ">
       <div className="container">
         <div className="flex-col">
           <div className="text-center ">
             <h1 className="text-5xl font-bold my-6">Register now!</h1>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 mx-auto">
-            <form className="card-body">
+            <form onSubmit={handleRegister} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Your full name</span>
@@ -37,6 +63,7 @@ const Register = () => {
                 <input
                   type="text"
                   placeholder="Full name"
+                  name="fullName"
                   className="input input-bordered"
                   required
                 />
@@ -48,6 +75,7 @@ const Register = () => {
                 <input
                   type="text"
                   placeholder="Your photo URL"
+                  name="photoUrl"
                   className="input input-bordered"
                   required
                 />
@@ -59,6 +87,7 @@ const Register = () => {
                 <input
                   type="email"
                   placeholder="Email address"
+                  name="email"
                   className="input input-bordered"
                   required
                 />
@@ -70,6 +99,7 @@ const Register = () => {
                 <input
                   type="password"
                   placeholder="Password"
+                  name="password"
                   className="input input-bordered"
                   required
                 />
