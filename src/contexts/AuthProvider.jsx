@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from 'react';
 import {
   createUserWithEmailAndPassword,
   getAuth,
+  GithubAuthProvider,
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
@@ -20,6 +21,7 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
 
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
 
   //register with email and password
   const registerWithEmailAndPassword = (email, password) => {
@@ -34,6 +36,11 @@ const AuthProvider = ({ children }) => {
   //login with google
   const loginWithGoogle = () => {
     return signInWithPopup(auth, googleProvider);
+  };
+
+  //login with github
+  const loginWithGithub = () => {
+    return signInWithPopup(auth, githubProvider);
   };
 
   //logout
@@ -64,6 +71,7 @@ const AuthProvider = ({ children }) => {
     registerWithEmailAndPassword,
     loginWithEmailAndPassword,
     loginWithGoogle,
+    loginWithGithub,
     updateUserProfile,
     logOut,
   };

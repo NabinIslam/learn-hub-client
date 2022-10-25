@@ -3,9 +3,10 @@ import GoogleButton from 'react-google-button';
 import toast from 'react-hot-toast';
 import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthProvider';
+import GithubButton from 'react-github-login-button';
 
 const Login = () => {
-  const { loginWithGoogle, loginWithEmailAndPassword } =
+  const { loginWithGoogle, loginWithEmailAndPassword, loginWithGithub } =
     useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -36,6 +37,18 @@ const Login = () => {
         toast.error(error.message);
       });
   };
+
+  const handleGithubSignIn = () => {
+    loginWithGithub()
+      .then(() => {
+        navigate('/');
+        toast.success('Login successful');
+      })
+      .catch(error => {
+        toast.error(error.message);
+      });
+  };
+
   return (
     <div className="hero min-h-[90vh] ">
       <div className="container">
@@ -87,6 +100,7 @@ const Login = () => {
               </p>
               <div className="divider">OR</div>
               <GoogleButton className="mx-auto" onClick={handleGoogleSignIn} />
+              <GithubButton className="mx-auto" onClick={handleGithubSignIn} />
             </form>
           </div>
         </div>

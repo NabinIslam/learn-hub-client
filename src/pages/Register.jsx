@@ -3,10 +3,15 @@ import GoogleButton from 'react-google-button';
 import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthProvider';
 import toast from 'react-hot-toast';
+import GithubButton from 'react-github-login-button';
 
 const Register = () => {
-  const { loginWithGoogle, registerWithEmailAndPassword, updateUserProfile } =
-    useContext(AuthContext);
+  const {
+    loginWithGoogle,
+    registerWithEmailAndPassword,
+    updateUserProfile,
+    loginWithGithub,
+  } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -36,6 +41,17 @@ const Register = () => {
 
   const handleGoogleSignIn = () => {
     loginWithGoogle()
+      .then(() => {
+        navigate('/');
+        toast.success('Login successful');
+      })
+      .catch(error => {
+        toast.error(error.message);
+      });
+  };
+
+  const handleGithubSignIn = () => {
+    loginWithGithub()
       .then(() => {
         navigate('/');
         toast.success('Login successful');
@@ -115,6 +131,7 @@ const Register = () => {
               </p>
               <div className="divider">OR</div>
               <GoogleButton className="mx-auto" onClick={handleGoogleSignIn} />
+              <GithubButton className="mx-auto" onClick={handleGithubSignIn} />
             </form>
           </div>
         </div>
