@@ -2,7 +2,7 @@ import { Circles } from 'react-loader-spinner';
 
 const LoadingSpinner = () => {
   return (
-    <div className="m-h-[90vh] flex items-center justify-center">
+    <div className="h-screen w-screen bg-white absolute flex items-center justify-center">
       <Circles
         height="80"
         width="80"

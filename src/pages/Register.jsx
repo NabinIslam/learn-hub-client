@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import GoogleButton from 'react-google-button';
 import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthProvider';
@@ -14,6 +14,9 @@ const Register = () => {
   } = useContext(AuthContext);
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || '/';
 
   const handleRegister = event => {
     event.preventDefault();
@@ -30,7 +33,7 @@ const Register = () => {
           .catch(error => {
             toast.error(error.message);
           });
-        navigate('/');
+        navigate(from, { replace: true });
         form.reset();
         toast.success('Registration successful');
       })
@@ -42,7 +45,7 @@ const Register = () => {
   const handleGoogleSignIn = () => {
     loginWithGoogle()
       .then(() => {
-        navigate('/');
+        navigate(from, { replace: true });
         toast.success('Login successful');
       })
       .catch(error => {
@@ -53,7 +56,7 @@ const Register = () => {
   const handleGithubSignIn = () => {
     loginWithGithub()
       .then(() => {
-        navigate('/');
+        navigate(from, { replace: true });
         toast.success('Login successful');
       })
       .catch(error => {
