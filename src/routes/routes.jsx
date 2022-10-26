@@ -26,7 +26,6 @@ const router = createBrowserRouter([
       {
         path: '/courses',
         element: <CoursesPageLayout />,
-        // loader: () => fetch('https://learn-hub-server.vercel.app/courses'),
         children: [
           {
             path: '/courses',
@@ -66,12 +65,14 @@ const router = createBrowserRouter([
         element: <Register />,
       },
       {
-        path: '/checkout',
+        path: '/checkout/:id',
         element: (
           <PrivateRoute>
             <Checkout />
           </PrivateRoute>
         ),
+        loader: ({ params }) =>
+          fetch(`https://learn-hub-server.vercel.app/course/${params.id}`),
       },
     ],
   },

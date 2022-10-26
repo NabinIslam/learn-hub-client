@@ -32,7 +32,7 @@ const CoursePage = () => {
             <h2 className="text-right font-semibold text-2xl">
               ${courseDetail.price}
             </h2>
-            <Link to={'/checkout'}>
+            <Link to={`/checkout/${courseDetail.id}`}>
               <button className="btn btn-success text-white my-2">
                 Get premium access
               </button>
@@ -45,31 +45,6 @@ const CoursePage = () => {
             </h3>
           </div>
         </div>
-
-        {/* pdf container */}
-        {/* <div ref={ref}>
-          <img className="rounded-md" src={courseDetail.thumbnail} alt="" />
-          <h2 className="text-2xl font-bold my-2">{courseDetail.title}</h2>
-          <h3 className="text-xl my-2">
-            <strong>Course instructor:</strong> {courseDetail.instructor}
-          </h3>
-          <h2 className="text-2xl font-bold underline my-2">Description:</h2>
-          <p className=" my-2">{courseDetail.description}</p>
-          <h2 className="text-right font-semibold text-2xl">
-            ${courseDetail.price}
-          </h2>
-          <Link to={'/checkout'}>
-            <button className="btn btn-success text-white my-2">
-              Get premium access
-            </button>
-          </Link>
-          <h3 className="text-xl font-semibold my-2">
-            <strong>Course duration:</strong> {courseDetail.duration}
-          </h3>
-          <h3 className="text-xl font-semibold my-2">
-            <strong>Total videos:</strong> {courseDetail.total_videos}
-          </h3>
-        </div> */}
       </div>
     </div>
   );
