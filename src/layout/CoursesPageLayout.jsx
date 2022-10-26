@@ -5,7 +5,7 @@ const CoursesPageLayout = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    const url = 'http://localhost:5000/courses-categories';
+    const url = 'https://learn-hub-server.vercel.app/courses-categories';
     fetch(url)
       .then(res => res.json())
       .then(data => setCategories(data));

@@ -11,6 +11,7 @@ const firebaseConfig = {
   // storageBucket: process.env.REACT_APP_storageBucket,
   // messagingSenderId: process.env.REACT_APP_messagingSenderId,
   // appId: process.env.REACT_APP_appId,
+
   apiKey: 'AIzaSyDkfrlPauloGE_497HWvM_JCTnV3LHRYec',
   authDomain: 'learn-hub-d6174.firebaseapp.com',
   projectId: 'learn-hub-d6174',

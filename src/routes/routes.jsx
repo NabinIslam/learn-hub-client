@@ -26,18 +26,20 @@ const router = createBrowserRouter([
       {
         path: '/courses',
         element: <CoursesPageLayout />,
-        // loader: () => fetch('http://localhost:5000/courses'),
+        // loader: () => fetch('https://learn-hub-server.vercel.app/courses'),
         children: [
           {
             path: '/courses',
             element: <Courses />,
-            loader: () => fetch('http://localhost:5000/courses'),
+            loader: () => fetch('https://learn-hub-server.vercel.app/courses'),
           },
           {
             path: '/courses/category/:id',
             element: <CategoryCourses />,
             loader: ({ params }) =>
-              fetch(`http://localhost:5000/courses/category/${params.id}`),
+              fetch(
+                `https://learn-hub-server.vercel.app/courses/category/${params.id}`
+              ),
           },
         ],
       },
@@ -45,7 +47,7 @@ const router = createBrowserRouter([
         path: '/courses/course/:id',
         element: <CoursePage />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/course/${params.id}`),
+          fetch(`https://learn-hub-server.vercel.app/course/${params.id}`),
       },
       {
         path: '/faq',
