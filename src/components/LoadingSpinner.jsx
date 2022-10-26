@@ -2,11 +2,11 @@ import { Circles } from 'react-loader-spinner';
 
 const LoadingSpinner = () => {
   return (
-    <div className="h-screen w-screen bg-white absolute flex items-center justify-center">
+    <div className="h-[70vh] flex items-center justify-center">
       <Circles
         height="80"
         width="80"
-        color="#4fa94d"
+        color="#594da9"
         ariaLabel="circles-loading"
         wrapperStyle={{}}
         wrapperClass=""

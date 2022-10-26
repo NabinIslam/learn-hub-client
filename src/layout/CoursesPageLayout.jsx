@@ -20,10 +20,10 @@ const CoursesPageLayout = () => {
           Explore our amazing courses!
         </h2>
         <div className="flex justify-between">
-          <div className="my-7 basis-4/5">
+          <div className="my-7 basis-full sm:basis-full md:basis-4/5">
             <Outlet />
           </div>
-          <aside className="px-10 basis-1/5">
+          <aside className="hidden sm:hidden md:block lg:block  px-10 basis-1/5">
             <h3 className="text-2xl font-semibold">Categories</h3>
             <ul className="my-3">
               <Link className="font-semibold" to={'/courses'}>

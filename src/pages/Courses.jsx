@@ -21,7 +21,7 @@ const Courses = () => {
     //       Explore our amazing courses!
     //     </h2>
     //     <div className="flex justify-between">
-    <div className="grid gap-10 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+    <div className="grid gap-10 grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
       {courses.map(course => (
         <Course key={course.id} course={course} />
       ))}
