@@ -1,4 +1,8 @@
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
+import React from 'react';
+import Pdf from 'react-to-pdf';
+
+const ref = React.createRef();
 
 const CoursePage = () => {
   const courseDetail = useLoaderData();
@@ -6,8 +10,18 @@ const CoursePage = () => {
 
   return (
     <div>
-      <div className="container mx-auto flex flex-col-reverse sm:flex-col-reverse md:flex-row py-10">
+      <div
+        ref={ref}
+        className="container mx-auto flex flex-col-reverse sm:flex-col-reverse md:flex-row py-10"
+      >
         <div className="basis-full pr-10 sm:basis-full md:basis-3/5">
+          <Pdf targetRef={ref} filename="code-example.pdf">
+            {({ toPdf }) => (
+              <button onClick={toPdf} className="btn btn-error text-white">
+                Download PDF
+              </button>
+            )}
+          </Pdf>
           <h2 className="text-2xl font-bold my-2">{courseDetail.title}</h2>
           <h3 className="text-xl my-2">
             <strong>Course instructor:</strong> {courseDetail.instructor}
@@ -21,9 +35,11 @@ const CoursePage = () => {
             <h2 className="text-right font-semibold text-2xl">
               ${courseDetail.price}
             </h2>
-            <button className="btn btn-success text-white my-2">
-              Get premium access
-            </button>
+            <Link to={'/checkout'}>
+              <button className="btn btn-success text-white my-2">
+                Get premium access
+              </button>
+            </Link>
             <h3 className="text-xl font-semibold my-2">
               <strong>Course duration:</strong> {courseDetail.duration}
             </h3>
