@@ -21,8 +21,8 @@ const Checkout = () => {
             <tbody>
               <tr>
                 <th>1</th>
-                <td>{courseInfo.title}</td>
-                <td>{courseInfo.price}</td>
+                <td className="font-semibold">{courseInfo.title}</td>
+                <td className="font-semibold">{courseInfo.price}</td>
               </tr>
             </tbody>
           </table>
