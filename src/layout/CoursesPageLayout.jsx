@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Link, Outlet, useLoaderData } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 const CoursesPageLayout = () => {
-  const courses = useLoaderData();
-
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
