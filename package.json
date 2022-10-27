@@ -12,6 +12,7 @@
     "daisyui": "^2.33.0",
     "firebase": "^9.12.1",
     "react": "^18.2.0",
+    "react-awesome-slider": "^4.1.0",
     "react-dom": "^18.2.0",
     "react-github-login-button": "^1.0.1",
     "react-google-button": "^0.7.2",
