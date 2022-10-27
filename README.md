@@ -19,4 +19,4 @@ World's no. 1 e-learning platform.
 
 ## Live site
 
-https://lighthearted-baklava-f65a3a.netlify.app/
+https://learn-hub-d6174.web.app/
