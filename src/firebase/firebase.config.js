@@ -5,19 +5,19 @@ import { initializeApp } from 'firebase/app';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  // apiKey: process.env.REACT_APP_apiKey,
-  // authDomain: process.env.REACT_APP_authDomain,
-  // projectId: process.env.REACT_APP_projectId,
-  // storageBucket: process.env.REACT_APP_storageBucket,
-  // messagingSenderId: process.env.REACT_APP_messagingSenderId,
-  // appId: process.env.REACT_APP_appId,
+  apiKey: import.meta.env.VITE_APP_apiKey,
+  authDomain: import.meta.env.VITE_APP_authDomain,
+  projectId: import.meta.env.VITE_APP_projectId,
+  storageBucket: import.meta.env.VITE_APP_storageBucket,
+  messagingSenderId: import.meta.env.VITE_APP_messagingSenderId,
+  appId: import.meta.env.VITE_APP_appId,
 
-  apiKey: 'AIzaSyDkfrlPauloGE_497HWvM_JCTnV3LHRYec',
-  authDomain: 'learn-hub-d6174.firebaseapp.com',
-  projectId: 'learn-hub-d6174',
-  storageBucket: 'learn-hub-d6174.appspot.com',
-  messagingSenderId: '1040658040430',
-  appId: '1:1040658040430:web:2b0636b2ffb23f714a487f',
+  // apiKey: 'AIzaSyDkfrlPauloGE_497HWvM_JCTnV3LHRYec',
+  // authDomain: 'learn-hub-d6174.firebaseapp.com',
+  // projectId: 'learn-hub-d6174',
+  // storageBucket: 'learn-hub-d6174.appspot.com',
+  // messagingSenderId: '1040658040430',
+  // appId: '1:1040658040430:web:2b0636b2ffb23f714a487f',
 };
 
 // Initialize Firebase
