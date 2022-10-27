@@ -2,7 +2,7 @@ import { FaCircle } from 'react-icons/fa';
 
 const Blog = () => {
   return (
-    <div>
+    <div className="h-[70vh]">
       <div className="container mx-auto py-10">
         <div className="collapse">
           <input type="checkbox" className="peer" />
