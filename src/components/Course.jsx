@@ -6,7 +6,7 @@ const Course = ({ course }) => {
       <figure>
         <img src={course.thumbnail} alt="" />
       </figure>
-      <div className="card-body">
+      <div className="card-body flex flex-col justify-between">
         <h2 className="card-title">{course.title}</h2>
         <div className="card-actions justify-end">
           <Link to={`/courses/course/${course.id}`}>

@@ -7,7 +7,7 @@ const CategoryCourse = ({ categoryCourse }) => {
       <figure>
         <img src={categoryCourse.thumbnail} alt="" />
       </figure>
-      <div className="card-body">
+      <div className="card-body flex flex-col justify-between">
         <h2 className="card-title">{categoryCourse.title}</h2>
         <div className="card-actions justify-end">
           <Link to={`/courses/course/${categoryCourse.id}`}>
